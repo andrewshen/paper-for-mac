@@ -27,9 +27,15 @@ function createWindow () {
     width: mainWindowState.width,
     height: mainWindowState.height,
     titleBarStyle: 'hidden',
+    transparent: true,
     vibrancy: 'light',
     minWidth: 800,
     minHeight: 600,
+    show: false // Avoid flash of no content
+  });
+
+  win.once('ready-to-show', () => {
+    win.show();
   });
 
   mainWindowState.manage(win);
